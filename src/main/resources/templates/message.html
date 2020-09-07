@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en " xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Messaging</title>
+</head>
+<body>
+<main>
+    <div>
+        <h1>Messages</h1>
+        <ul id="messages">
+            <li>App<br>Hi there! Submit your message using the send button!</li>
+            <li th:each="message : ${messages}">
+                <span th:text="${message.userName}"></span><br>
+                <span th:text="${message.text}"></span>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <form action="/send" method="post">
+            <label for="messages">Message:</label>
+            <input name="text" type="text" placeholder="message">
+            <button type="submit" id="send">Send</button>
+        </form>
+        <a href="/refresh">Refresh</a>
+    </div>
+</main>
+</body>
+</html>
